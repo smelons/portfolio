@@ -2,3 +2,5 @@
 *.css.map
 
 .vscode/
+
+node_modules/
