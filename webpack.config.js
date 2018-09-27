@@ -60,7 +60,7 @@ const config = {
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       filename: path.join(__dirname, 'dist', 'index.html'),
-      template: path.join(__dirname, 'static', 'index.html'),
+      template: path.join(__dirname, 'index.html'),
       inject: true,
       minify: minify ? {
         removeComments: true,
