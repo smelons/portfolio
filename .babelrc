@@ -1,6 +1,13 @@
 {
     "presets": [
-        "es2015",
-        "preact"
+      [
+        "@babel/preset-env",
+        {
+          "modules": false
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-dynamic-import"
     ]
-}
+  }
