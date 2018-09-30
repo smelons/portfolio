@@ -1,8 +1,7 @@
-const { VueLoaderPlugin } = require('vue-loader');
+'use strict'
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const nodeSassMagicImporter = require('node-sass-magic-importer');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
@@ -27,10 +26,6 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-      },
-      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [path.join(__dirname, 'src')],
@@ -38,7 +33,6 @@ const config = {
       {
         test: /\.scss$/,
         use: [
-          'vue-style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -57,10 +51,9 @@ const config = {
     ],
   },
   plugins: [
-    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       filename: path.join(__dirname, 'index.html'),
-      template: path.join(__dirname, 'static', 'index.html'),
+      template: path.join(__dirname, 'src', 'index.html'),
       inject: true,
       minify: minify ? {
         removeComments: true,
@@ -84,15 +77,6 @@ if (minify) {
       parallel: true,
     }),
   ];
-}
-
-if (env !== 'development') {
-  config.plugins.push(new MiniCssExtractPlugin());
-
-  const sassLoader = config.module.rules.find(({ test }) => test.test('.scss'));
-  // Replace the `vue-style-loader` with
-  // the MiniCssExtractPlugin loader.
-  sassLoader.use[0] = MiniCssExtractPlugin.loader;
 }
 
 module.exports = config;
