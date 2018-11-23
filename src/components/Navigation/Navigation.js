@@ -18,7 +18,6 @@ class Navigation extends Component {
               <div class="navbar-item" href="/">
                 <Link to="/">MEL</Link>
               </div>
-
               <div role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
