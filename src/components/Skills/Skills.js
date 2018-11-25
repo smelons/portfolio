@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { SkillCategory } from '../SkillCategory';
-import { SkillData } from '../../data/skills'
+import SkillData from '../../data/skills';
 
-class Skills extends Component {
-  render() {
-    const categories = SkillData.map(function (category, index) {
-      const props = {
-        title: category.title,
-        skills: category.skills
-      };
-      return <SkillCategory {...props}></SkillCategory>
-    });
-    return (
-      <div class="hero-body is-aligned-top">
+export default function Skills() {
+  const categories = SkillData.map((category) => {
+    const categoryProps = {
+      title: category.title,
+      skills: category.skills,
+    };
+    return <SkillCategory {...categoryProps} />;
+  });
+  return (
+    <div className="hero-body is-aligned-top">
+      <div className="container">
         {categories}
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default Skills;

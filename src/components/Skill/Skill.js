@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Logo from 'react-svgporn';
 
-class Skill extends Component {
-    render() {
-        return (
-            <div class="column">
-                {this.props.name}
-            </div>
-        );
-    }
+export default function Skill({ name, logo, url }) {
+  return (
+    <div className="column">
+      <a href={url}>
+        <Logo name={logo} />
+        {name}
+      </a>
+    </div>
+  );
 }
-
-export default Skill;

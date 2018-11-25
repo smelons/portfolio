@@ -1,11 +1,13 @@
-export const SkillData = [{
+const SkillData = [{
   title: 'Front End',
   skills: [
     {
-      name: 'Angular'
+      name: 'Angular',
     },
     {
-      name: 'Babel'
-    }
-  ]
+      name: 'Babel',
+    },
+  ],
 }];
+
+export default SkillData;
